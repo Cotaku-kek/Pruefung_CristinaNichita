@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             x:Class="Pruefung_CristinaNichita.Views.MainView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Scanning" Command="{Binding Camera}"/>
+        <ToolbarItem Text="Add" Command="{Binding AddUser}"/>
+        <ToolbarItem Text="Load" Command="{Binding Load}"/>
+        <ToolbarItem Text="Delete" Command="{Binding Delete}"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CollectionView ItemsSource="{Binding User}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedUser}"
+                        SelectionChangedCommand="{Binding OpenUser}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <RelativeLayout Margin="10" Padding="20" WidthRequest="300" BackgroundColor="#99FFFFFF">
+                            <Image WidthRequest="100" HeightRequest="100" Aspect="AspectFit" Source="{Binding Picture}" RelativeLayout.XConstraint="20" RelativeLayout.YConstraint="20"/>
+                            <Label FontSize="16" FontAttributes="Bold" Text="{Binding Name}" VerticalOptions="Center" RelativeLayout.XConstraint="150" RelativeLayout.YConstraint="25"/>
+                            <Label IsVisible="false" FontSize="16" FontAttributes="Bold" Text="{Binding Id}" VerticalOptions="Center" RelativeLayout.XConstraint="150" RelativeLayout.YConstraint="50"/>                        
+                            <zxing:ZXingBarcodeImageView
+                                IsVisible="True"
+                                BarcodeFormat="QR_CODE"
+                                HeightRequest="80"
+                                WidthRequest="80"
+                                BarcodeValue="{Binding Id, FallbackValue='1'}"
+                                RelativeLayout.XConstraint="250" RelativeLayout.YConstraint="50">
+                                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                    <zxcm:EncodingOptions Width="80" Height="80"/>
+                                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                            </zxing:ZXingBarcodeImageView>
+                        </RelativeLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

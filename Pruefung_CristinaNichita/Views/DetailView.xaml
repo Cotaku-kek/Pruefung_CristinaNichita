@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pruefung_CristinaNichita.Views.DetailView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding Save}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="14">
+        <Image WidthRequest="100" HeightRequest="100" Aspect="AspectFit" Source="{Binding FullUser.Picture}"/>
+        <Label FontSize="16" FontAttributes="Bold" Text="Name: "/>
+        <Entry Text="{Binding FullUser.Name} " />
+        <Label FontSize="16" FontAttributes="Bold" Text="Gender: " />
+        <Entry Text="{Binding FullUser.Gender} " />
+        <Label FontSize="16" FontAttributes="Bold" Text="Birthday: " />
+        <Entry Text="{Binding FullUser.Birthday} " />
+        <Label FontSize="16" FontAttributes="Bold" Text="Phone: "/>
+        <Entry Text="{Binding FullUser.Phone} " />
+    </StackLayout>
+</ContentPage>
