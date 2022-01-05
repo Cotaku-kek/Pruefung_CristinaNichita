@@ -35,7 +35,7 @@
                         <RelativeLayout Margin="10" Padding="20" WidthRequest="300" BackgroundColor="#99FFFFFF">
                             <Image WidthRequest="100" HeightRequest="100" Aspect="AspectFit" Source="{Binding Picture}" RelativeLayout.XConstraint="20" RelativeLayout.YConstraint="20"/>
                             <Label FontSize="16" FontAttributes="Bold" Text="{Binding Name}" VerticalOptions="Center" RelativeLayout.XConstraint="150" RelativeLayout.YConstraint="25"/>
-                            <Label IsVisible="false" FontSize="16" FontAttributes="Bold" Text="{Binding Id}" VerticalOptions="Center" RelativeLayout.XConstraint="150" RelativeLayout.YConstraint="50"/>                        
+                            <Label IsVisible="true" FontSize="16" FontAttributes="Bold" Text="{Binding Id}" VerticalOptions="Center" RelativeLayout.XConstraint="150" RelativeLayout.YConstraint="50"/>                        
                             <zxing:ZXingBarcodeImageView
                                 IsVisible="True"
                                 BarcodeFormat="QR_CODE"
